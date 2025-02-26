@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Scooter Pinpointer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-map-marker-alt"></i>
+                E-Scooter Pinpointer
+            </div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#technical">Technical</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <button class="cta-button" id="access-map">Access Map</button>
+            <button class="mobile-menu-button" id="mobile-menu-button">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <button class="close-menu" id="close-menu">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="mobile-nav-links">
+            <a href="#features">Features</a>
+            <a href="#technical">Technical</a>
+            <a href="#contact">Contact</a>
+            <button class="cta-button">Access Map</button>
+        </div>
+    </div>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="floating-squares">
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+        </div>
+        
+        <div class="hero-content">
+            <h1 class="hero-title">Intelligent E-Scooter Management Platform</h1>
+            <p class="hero-description">
+                Our spatial information infrastructure helps administrators efficiently manage e-scooter locations, optimize placement, reduce traffic congestion, and maximize accessibility for users.
+            </p>
+            <div class="hero-buttons">
+                <button class="primary-button" id="get-started">Get Started</button>
+                <button class="secondary-button" id="learn-more">Learn More</button>
+            </div>
+        </div>
+        
+        <div class="hero-image">
+            <img src="scooter.jpg" alt="E-Scooter Map Preview" class="map-preview glass">
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <h2 class="section-title">Key Features</h2>
+        <div class="features-grid">
+            <div class="feature-card glass">
+                <i class="fas fa-map-marked-alt feature-icon"></i>
+                <h3 class="feature-title">Location Management</h3>
+                <p class="feature-description">
+                    Administrators can add, edit, or remove pinpointed locations for e-scooters on an interactive map.
+                </p>
+            </div>
+            
+            <div class="feature-card glass">
+                <i class="fas fa-motorcycle feature-icon"></i>
+                <h3 class="feature-title">Scooter Status Tracking</h3>
+                <p class="feature-description">
+                    The portal displays occupied and available scooter locations in real-time for better fleet management.
+                </p>
+            </div>
+            
+            <div class="feature-card glass">
+                <i class="fas fa-map feature-icon"></i>
+                <h3 class="feature-title">Interactive Map</h3>
+                <p class="feature-description">
+                    Real-time map integration shows scooter placement using markers with detailed information on click.
+                </p>
+            </div>
+            
+            <div class="feature-card glass">
+                <i class="fas fa-route feature-icon"></i>
+                <h3 class="feature-title">Better Urban Planning</h3>
+                <p class="feature-description">
+                    Optimize scooter distribution to minimize traffic congestion and enhance urban mobility.
+                </p>
+            </div>
+            
+            <div class="feature-card glass">
+                <i class="fas fa-money-bill-wave feature-icon"></i>
+                <h3 class="feature-title">Revenue Optimization</h3>
+                <p class="feature-description">
+                    Identify high-income locations and optimize scooter placement for maximum revenue generation.
+                </p>
+            </div>
+            
+            <div class="feature-card glass">
+                <i class="fas fa-chart-line feature-icon"></i>
+                <h3 class="feature-title">Data-Driven Insights</h3>
+                <p class="feature-description">
+                    Comprehensive analytics to make informed decisions about your e-scooter fleet management.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Technical Section -->
+    <section class="technical" id="technical">
+        <div class="tech-content">
+            <div class="tech-info">
+                <h2 class="tech-title">Built with Advanced Technology</h2>
+                <p class="tech-description">
+                    Our platform leverages cutting-edge spatial information technology to provide seamless e-scooter management capabilities.
+                </p>
+                <ul class="tech-list">
+                    <li class="tech-item">
+                        <i class="fas fa-database"></i>
+                        <span>PostGIS & GeoServer for robust spatial data management</span>
+                    </li>
+                    <li class="tech-item">
+                        <i class="fas fa-globe"></i>
+                        <span>ArcGIS Online integration for powerful mapping</span>
+                    </li>
+                    <li class="tech-item">
+                        <i class="fab fa-react"></i>
+                        <span>Built with React for a responsive user experience</span>
+                    </li>
+                    <li class="tech-item">
+                        <i class="fas fa-map"></i>
+                        <span>Interactive mapping with React Leaflet</span>
+                    </li>
+                    <li class="tech-item">
+                        <i class="fas fa-cloud"></i>
+                        <span>Cloud-based infrastructure for reliability</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="tech-image">
+                <img src="app.png" alt="Technical Infrastructure" class="tech-img glass">
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta glass" id="contact">
+        <h2 class="cta-title">Ready to Optimize Your E-Scooter Fleet?</h2>
+        <p class="cta-description">
+            Start managing your e-scooters more efficiently with our powerful spatial information platform. Access the map interface now or contact us for more information.
+        </p>
+        <div class="hero-buttons">
+            <button class="primary-button" id="access-map-cta">Access Map</button>
+            <button class="secondary-button" id="contact-us">Contact Us</button>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="#">Home</a>
+            <a href="#features">Features</a>
+            <a href="#technical">Technical</a>
+            <a href="#contact">Contact</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+        </div>
+        <p class="copyright">© 2025 E-Scooter Pinpointer. All rights reserved.</p>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="script.js" defer></script> 
+</body>
+</html>
