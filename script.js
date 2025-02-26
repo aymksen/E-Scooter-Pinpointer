@@ -4,13 +4,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const closeMenuButton = document.getElementById('close-menu');
     const mobileMenu = document.getElementById('mobile-menu');
     
-    mobileMenuButton.addEventListener('click', function() {
-        mobileMenu.classList.add('active');
-    });
+    if (mobileMenuButton) {
+        mobileMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.add('active');
+        });
+    }
     
-    closeMenuButton.addEventListener('click', function() {
-        mobileMenu.classList.remove('active');
-    });
+    if (closeMenuButton) {
+        closeMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.remove('active');
+        });
+    }
     
     // Smooth Scrolling for Anchor Links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -18,7 +22,9 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             
             // Close mobile menu if open
-            mobileMenu.classList.remove('active');
+            if (mobileMenu) {
+                mobileMenu.classList.remove('active');
+            }
             
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
@@ -33,29 +39,47 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Map Access Buttons
-    const accessMapButtons = document.querySelectorAll('#access-map, #access-map-cta');
+    // Map Access Buttons - Fix for mobile button
+    const accessMapButtons = document.querySelectorAll('#access-map, #access-map-cta, #mobile-access-map');
     accessMapButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Redirect to map page
-            window.location.href = 'map.html';
-        });
+        if (button) {
+            button.addEventListener('click', function() {
+                // Redirect to map page
+                window.location.href = 'map.html';
+            });
+        }
     });
     
     // Get Started Button
-    document.getElementById('get-started').addEventListener('click', function() {
-        window.location.href = 'map.html';
-    });
+    const getStartedButton = document.getElementById('get-started');
+    if (getStartedButton) {
+        getStartedButton.addEventListener('click', function() {
+            window.location.href = 'map.html';
+        });
+    }
     
     // Learn More Button
-    document.getElementById('learn-more').addEventListener('click', function() {
-        document.querySelector('#features').scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
-    });
+    const learnMoreButton = document.getElementById('learn-more');
+    if (learnMoreButton) {
+        learnMoreButton.addEventListener('click', function() {
+            const featuresSection = document.querySelector('#features');
+            if (featuresSection) {
+                featuresSection.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'start', 
+                    inline: 'nearest' 
+                });
+            }
+        });
+    }
     
     // Contact Us Button
-    document.getElementById('contact-us').addEventListener('click', function() {
-        alert('Contact form functionality will be implemented here.');
-    });
+    const contactUsButton = document.getElementById('contact-us');
+    if (contactUsButton) {
+        contactUsButton.addEventListener('click', function() {
+            alert('Contact form functionality will be implemented here.');
+        });
+    }
     
     // Add parallax effect to floating squares
     window.addEventListener('scroll', function() {
@@ -67,4 +91,24 @@ document.addEventListener('DOMContentLoaded', function() {
             square.style.transform = `translateY(${scrollY * speed}px)`;
         });
     });
+    
+    // Check for viewport resizing and handle mobile styles
+    window.addEventListener('resize', function() {
+        const width = window.innerWidth;
+        const heroButtons = document.querySelector('.hero-buttons');
+        
+        if (width <= 576 && heroButtons) {
+            heroButtons.style.flexDirection = 'column';
+        } else if (heroButtons) {
+            heroButtons.style.flexDirection = 'row';
+        }
+    });
+    
+    // Initialize on load
+    const width = window.innerWidth;
+    const heroButtons = document.querySelector('.hero-buttons');
+    
+    if (width <= 576 && heroButtons) {
+        heroButtons.style.flexDirection = 'column';
+    }
 });

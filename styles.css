@@ -30,6 +30,9 @@ header {
     width: 100%;
     z-index: 1000;
     padding: 20px 40px;
+    background: rgba(0, 44, 125, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 nav {
@@ -93,7 +96,7 @@ nav {
     align-items: center;
     justify-content: space-between;
     min-height: 100vh;
-    padding: 0 40px;
+    padding: 120px 40px 40px;
     max-width: 1400px;
     margin: 0 auto;
     position: relative;
@@ -319,6 +322,7 @@ footer {
     justify-content: center;
     gap: 30px;
     margin-bottom: 30px;
+    flex-wrap: wrap;
 }
 
 .footer-links a {
@@ -444,9 +448,13 @@ footer {
 
 /* Mobile Styles */
 @media (max-width: 992px) {
+    header {
+        padding: 15px 20px;
+    }
+    
     .hero {
         flex-direction: column;
-        padding-top: 100px;
+        padding: 100px 20px 40px;
         text-align: center;
     }
     
@@ -456,8 +464,13 @@ footer {
         margin-bottom: 60px;
     }
     
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
     .hero-buttons {
         justify-content: center;
+        flex-wrap: wrap;
     }
     
     .hero-image {
@@ -471,6 +484,12 @@ footer {
     .tech-info {
         width: 100%;
         text-align: center;
+    }
+    
+    .tech-list {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 400px;
     }
     
     .tech-image {
@@ -489,6 +508,41 @@ footer {
         color: #fff;
         font-size: 1.5rem;
         cursor: pointer;
+    }
+    
+    .features, .technical {
+        padding: 60px 20px;
+    }
+    
+    .section-title, .tech-title, .cta-title {
+        font-size: 2rem;
+    }
+    
+    .cta {
+        padding: 40px 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .feature-card {
+        padding: 30px 20px;
+    }
+    
+    .primary-button, .secondary-button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+    }
+    
+    .footer-links {
+        gap: 15px;
     }
 }
 
@@ -542,4 +596,10 @@ footer {
     text-decoration: none;
     font-size: 1.5rem;
     font-weight: 500;
+}
+
+.mobile-nav-links .cta-button {
+    margin-top: 20px;
+    display: inline-block;
+    font-size: 1.2rem;
 }
