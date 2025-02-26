@@ -73,14 +73,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Contact Us Button
-    const contactUsButton = document.getElementById('contact-us');
-    if (contactUsButton) {
-        contactUsButton.addEventListener('click', function() {
-            alert('Contact form functionality will be implemented here.');
-        });
-    }
-    
     // Add parallax effect to floating squares
     window.addEventListener('scroll', function() {
         const squares = document.querySelectorAll('.square');
@@ -112,3 +104,63 @@ document.addEventListener('DOMContentLoaded', function() {
         heroButtons.style.flexDirection = 'column';
     }
 });
+
+// Add at the top of the file
+emailjs.init("YCKqvOTkXtrbF6pXx");
+
+// Update Contact Us Button handler
+const contactUsButton = document.getElementById('contact-us');
+if (contactUsButton) {
+    contactUsButton.addEventListener('click', function() {
+        document.getElementById('contact-modal').style.display = 'flex';
+    });
+}
+
+// Add modal close functionality
+const closeModal = document.getElementById('close-contact-modal');
+const contactModal = document.getElementById('contact-modal');
+
+closeModal.addEventListener('click', () => {
+    contactModal.style.display = 'none';
+});
+
+contactModal.addEventListener('click', (e) => {
+    if (e.target === contactModal) {
+        contactModal.style.display = 'none';
+    }
+});
+
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const submitBtn = this.querySelector('.primary-button');
+    const originalText = submitBtn.textContent;
+    
+    // Show sending state
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+
+    emailjs.sendForm("service_yt8ebgx", "template_ptp1jhe", this)
+        .then(() => {
+            // Show success state
+            submitBtn.textContent = 'Message Sent!';
+            
+            // Close modal and reset after 2 seconds
+            setTimeout(() => {
+                contactModal.style.display = 'none';
+                this.reset();
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }, 2000);
+        }, (error) => {
+            // Show error state
+            submitBtn.textContent = 'Failed to Send';
+            console.log('EmailJS Error:', error);
+            
+            // Reset button after 3 seconds
+            setTimeout(() => {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }, 3000);
+        });
+});
+
