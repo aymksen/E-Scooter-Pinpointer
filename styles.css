@@ -30,6 +30,9 @@ header {
     width: 100%;
     z-index: 1000;
     padding: 20px 40px;
+    background: rgba(0, 44, 125, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 nav {
@@ -46,6 +49,7 @@ nav {
     color: #fff;
     display: flex;
     align-items: center;
+    white-space: nowrap; /* Prevents text from wrapping to a new line */
 }
 
 .logo i {
@@ -93,7 +97,7 @@ nav {
     align-items: center;
     justify-content: space-between;
     min-height: 100vh;
-    padding: 0 40px;
+    padding: 120px 40px 40px;
     max-width: 1400px;
     margin: 0 auto;
     position: relative;
@@ -188,7 +192,7 @@ nav {
 
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 30px;
 }
 
@@ -319,6 +323,7 @@ footer {
     justify-content: center;
     gap: 30px;
     margin-bottom: 30px;
+    flex-wrap: wrap;
 }
 
 .footer-links a {
@@ -444,9 +449,17 @@ footer {
 
 /* Mobile Styles */
 @media (max-width: 992px) {
+    .cta-button {
+        padding: 10px 10px;
+    }
+
+    header {
+        padding: 15px 20px;
+    }
+    
     .hero {
         flex-direction: column;
-        padding-top: 100px;
+        padding: 100px 20px 40px;
         text-align: center;
     }
     
@@ -456,8 +469,13 @@ footer {
         margin-bottom: 60px;
     }
     
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
     .hero-buttons {
         justify-content: center;
+        flex-wrap: wrap;
     }
     
     .hero-image {
@@ -473,6 +491,12 @@ footer {
         text-align: center;
     }
     
+    .tech-list {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 400px;
+    }
+    
     .tech-image {
         width: 100%;
         margin-top: 40px;
@@ -484,11 +508,47 @@ footer {
     
     .mobile-menu-button {
         display: block;
+        margin-left: 10px;
         background: transparent;
         border: none;
         color: #fff;
         font-size: 1.5rem;
         cursor: pointer;
+    }
+    
+    .features, .technical {
+        padding: 60px 20px;
+    }
+    
+    .section-title, .tech-title, .cta-title {
+        font-size: 2rem;
+    }
+    
+    .cta {
+        padding: 40px 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .feature-card {
+        padding: 30px 20px;
+    }
+    
+    .primary-button, .secondary-button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+    }
+    
+    .footer-links {
+        gap: 15px;
     }
 }
 
@@ -542,4 +602,75 @@ footer {
     text-decoration: none;
     font-size: 1.5rem;
     font-weight: 500;
+}
+
+.mobile-nav-links .cta-button {
+    margin-top: 20px;
+    display: inline-block;
+    font-size: 1.2rem;
+   
+}
+
+/* Contact Modal Styles */
+.contact-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 3000;
+}
+
+.contact-modal-content {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+/* Disabled state styling */
+.primary-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
 }
