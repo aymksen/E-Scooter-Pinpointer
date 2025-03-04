@@ -533,7 +533,7 @@ footer {
     .hero-title {
         font-size: 2rem;
     }
-    
+     
     .feature-card {
         padding: 30px 20px;
     }
@@ -554,7 +554,7 @@ footer {
 
 @media (min-width: 993px) {
     .mobile-menu-button {
-        display: none;
+        display: none ;
     }
 }
 
