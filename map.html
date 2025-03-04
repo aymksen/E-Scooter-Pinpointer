@@ -16,6 +16,20 @@
             height: 100%;
             margin: 0;
         }
+        .leaflet-draw-draw-marker::before {
+    content: "🛴";
+    font-size: 20px;
+}
+.leaflet-draw-draw-marker {
+    background-image: none !important; /* Removes the default pinpoint icon */
+    text-indent: 0; /* Ensures text (emoji) is visible */
+    font-size: 20px; /* Adjust emoji size */
+}
+
+.leaflet-draw-draw-marker::before {
+    content: "🛴"; /* Add the scooter emoji */
+    font-size: 20px; /* Adjust size if needed */
+}
     </style>
 </head>
 <body>
